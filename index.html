@@ -6,6 +6,22 @@
     <title>Facility Occupancy Dashboard</title>
     <!-- Load Outerbase Astra SDK just once -->
     <script src="https://cdn.outerbase.com/astra/latest/index.js"></script>
+    <script>
+        // Ensure all Outerbase components load after the SDK is fully loaded
+        window.addEventListener('load', function() {
+            // Force redraw of components
+            setTimeout(function() {
+                const charts = document.querySelectorAll('astra-composed-chart');
+                charts.forEach(chart => {
+                    // Trigger a DOM update
+                    chart.style.display = 'none';
+                    setTimeout(() => {
+                        chart.style.display = '';
+                    }, 50);
+                });
+            }, 1000);
+        });
+    </script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -95,7 +111,7 @@
                         <astra-composed-chart 
                             header="Facility Occupancy" 
                             api-key="0ac87b4c-aa7b-4496-bc64-5466df62bd40" 
-                            chart-id="2e22baa1-a523-453e-aea7-a3dc8a07458a" />
+                            chart-id="2e22baa1-a523-453e-aea7-a3dc8a07458a"></astra-composed-chart>
                     </div>
                 </div>
                 
@@ -104,7 +120,7 @@
                         <astra-composed-chart 
                             header="Total Average Occupancy" 
                             api-key="0ac87b4c-aa7b-4496-bc64-5466df62bd40" 
-                            chart-id="1cfbd39a-8e5b-4256-aa8f-8b8113a29fbb" />
+                            chart-id="1cfbd39a-8e5b-4256-aa8f-8b8113a29fbb"></astra-composed-chart>
                     </div>
                 </div>
             </div>
@@ -117,7 +133,7 @@
                 <astra-composed-chart 
                     header="Occupancy by Location" 
                     api-key="0ac87b4c-aa7b-4496-bc64-5466df62bd40" 
-                    chart-id="8c818d26-357d-410b-bcc7-25a13b10ce1d" />
+                    chart-id="8c818d26-357d-410b-bcc7-25a13b10ce1d"></astra-composed-chart>
             </div>
         </div>
         
@@ -130,7 +146,7 @@
                         <astra-composed-chart 
                             header="Weekly Top Performers" 
                             api-key="0ac87b4c-aa7b-4496-bc64-5466df62bd40" 
-                            chart-id="91b389e6-85d2-4db7-a39d-c559ad4268f9" />
+                            chart-id="91b389e6-85d2-4db7-a39d-c559ad4268f9"></astra-composed-chart>
                     </div>
                 </div>
                 
@@ -139,7 +155,7 @@
                         <astra-composed-chart 
                             header="Weekly Bottom Performers" 
                             api-key="0ac87b4c-aa7b-4496-bc64-5466df62bd40" 
-                            chart-id="396920e9-8138-4b72-849e-68506f60353e" />
+                            chart-id="396920e9-8138-4b72-849e-68506f60353e"></astra-composed-chart>
                     </div>
                 </div>
             </div>
@@ -148,7 +164,7 @@
                 <astra-composed-chart 
                     header="Week Over Week Occupancy Change" 
                     api-key="0ac87b4c-aa7b-4496-bc64-5466df62bd40" 
-                    chart-id="7c38b197-d50f-4a4f-8cdf-22053c2700c2" />
+                    chart-id="7c38b197-d50f-4a4f-8cdf-22053c2700c2"></astra-composed-chart>
             </div>
         </div>
     </div>
